@@ -28,7 +28,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "JOB_EXECUTION_LOG",schema = "ELASTIC_JOB")
+@Table(name = "JOB_EXECUTION_LOG")
 public class JobExecutionLog {
 
     @Id

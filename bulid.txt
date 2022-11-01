@@ -1,9 +1,12 @@
 脚本：
-先 create schema ELASTIC_JOB
+DROP SCHEMA IF EXISTS ELASTIC_JOB CASCADE;
+
+CREATE SCHEMA ELASTIC_JOB;
 
 打包编译：
 mvn clean install -Prelease -DskipTests
 
+安装部署：
 cd /opt/software/shardingsphere-elastic-ui-3.0.1
 
 sudo cp /Users/yequanzhuo/IdeaProjects/github/shardingsphere-elasticjob-ui/shardingsphere-elasticjob-ui-distribution/shardingsphere-elasticjob-lite-ui-bin-distribution/target/apache-shardingsphere-elasticjob-3.0.1-lite-ui-bin.tar.gz  ./
@@ -19,7 +22,7 @@ sudo chmod 777 ./conf
 vim conf/application.properties
 
 添加如下内容：
-server.port=8088
+server.port=9099
 
 auth.root_username=root
 auth.root_password=root
@@ -33,6 +36,11 @@ spring.datasource.default.password=SYSDBA
 
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.naming.physical-strategy=org.apache.shardingsphere.elasticjob.lite.ui.config.MySpringPhysicalNamingStrategy
+spring.jpa.database-platform=org.hibernate.dialect.DmDialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.DmDialect
+
+dynamic.schema=ELASTIC_JOB
 
 
 sudo ./bin/start.sh

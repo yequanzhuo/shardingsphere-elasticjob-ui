@@ -36,7 +36,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Entity
-@Table(name = "TASK_RESULT_STATISTICS",schema = "ELASTIC_JOB")
+@Table(name = "TASK_RESULT_STATISTICS")
 public class TaskResultStatistics {
     
     @Id

@@ -27,7 +27,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Data
-@Table(name = "JOB_STATUS_TRACE_LOG",schema = "ELASTIC_JOB")
+@Table(name = "JOB_STATUS_TRACE_LOG")
 @Entity
 public class JobStatusTraceLog {
     

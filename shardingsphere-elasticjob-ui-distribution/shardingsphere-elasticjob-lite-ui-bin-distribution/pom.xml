@@ -25,15 +25,28 @@
     </parent>
     <artifactId>shardingsphere-elasticjob-lite-ui-bin-distribution</artifactId>
     <name>${project.artifactId}</name>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-elasticjob-lite-ui-backend</artifactId>
             <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>hibernate-core</artifactId>
+                    <groupId>org.hibernate</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <!--注意：只有这个版本的hibernate兼容达梦数据库 -->
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.3.10.Final</version>
         </dependency>
     </dependencies>
-    
+
     <profiles>
         <profile>
             <id>release</id>
