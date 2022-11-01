@@ -28,42 +28,43 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "JOB_EXECUTION_LOG")
+@Table(name = "JOB_EXECUTION_LOG",schema = "ELASTIC_JOB")
 public class JobExecutionLog {
-    
+
     @Id
+    @Column(name = "ID")
     private String id;
-    
-    @Column(name = "job_name")
+
+    @Column(name = "JOB_NAME")
     private String jobName;
-    
-    @Column(name = "task_id")
+
+    @Column(name = "TASK_ID")
     private String taskId;
-    
-    @Column(name = "hostname")
+
+    @Column(name = "HOSTNAME")
     private String hostname;
-    
-    @Column(name = "ip")
+
+    @Column(name = "IP")
     private String ip;
-    
-    @Column(name = "sharding_item")
+
+    @Column(name = "SHARDING_ITEM")
     private Integer shardingItem;
-    
-    @Column(name = "execution_source")
+
+    @Column(name = "EXECUTION_SOURCE")
     private String executionSource;
-    
-    @Column(name = "failure_cause")
+
+    @Column(name = "FAILURE_CAUSE")
     private String failureCause;
-    
-    @Column(name = "is_success")
+
+    @Column(name = "IS_SUCCESS")
     private Boolean isSuccess;
-    
-    @Column(name = "start_time")
+
+    @Column(name = "START_TIME")
     private Date startTime;
-    
-    @Column(name = "complete_time")
+
+    @Column(name = "COMPLETE_TIME")
     private Date completeTime;
-    
+
     /**
      * JobExecutionLog convert to JobExecutionEvent.
      *
@@ -84,5 +85,5 @@ public class JobExecutionLog {
                 failureCause
         );
     }
-    
+
 }

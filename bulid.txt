@@ -1,0 +1,39 @@
+脚本：
+先 create schema ELASTIC_JOB
+
+打包编译：
+mvn clean install -Prelease -DskipTests
+
+cd /opt/software/shardingsphere-elastic-ui-3.0.1
+
+sudo cp /Users/yequanzhuo/IdeaProjects/github/shardingsphere-elasticjob-ui/shardingsphere-elasticjob-ui-distribution/shardingsphere-elasticjob-lite-ui-bin-distribution/target/apache-shardingsphere-elasticjob-3.0.1-lite-ui-bin.tar.gz  ./
+
+sudo tar -xzvf ./apache-shardingsphere-elasticjob-3.0.1-lite-ui-bin.tar.gz
+
+sudo mv apache-shardingsphere-elasticjob-3.0.1-lite-ui-bin elasticjob-ui
+
+cd ./elasticjob-ui
+
+sudo chmod 777 ./conf
+
+vim conf/application.properties
+
+添加如下内容：
+server.port=8088
+
+auth.root_username=root
+auth.root_password=root
+
+auth.token_expires_after_seconds=3600
+
+spring.datasource.default.driver-class-name=dm.jdbc.driver.DmDriver
+spring.datasource.default.url=jdbc:dm://localhost:5325
+spring.datasource.default.username=SYSDBA
+spring.datasource.default.password=SYSDBA
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+
+sudo ./bin/start.sh
+

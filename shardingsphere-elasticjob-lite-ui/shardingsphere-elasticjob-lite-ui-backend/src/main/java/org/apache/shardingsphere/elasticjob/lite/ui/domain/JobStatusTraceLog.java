@@ -27,41 +27,42 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Data
-@Table(name = "JOB_STATUS_TRACE_LOG")
+@Table(name = "JOB_STATUS_TRACE_LOG",schema = "ELASTIC_JOB")
 @Entity
 public class JobStatusTraceLog {
     
     @Id
+    @Column(name = "ID")
     private String id;
     
-    @Column(name = "job_name")
+    @Column(name = "JOB_NAME")
     private String jobName;
     
-    @Column(name = "original_task_id")
+    @Column(name = "ORIGINAL_TASK_ID")
     private String originalTaskId;
     
-    @Column(name = "task_id")
+    @Column(name = "TASK_ID")
     private String taskId;
     
-    @Column(name = "slave_id")
+    @Column(name = "SLAVE_ID")
     private String slaveId;
     
-    @Column(name = "source")
+    @Column(name = "SOURCE")
     private String source;
     
-    @Column(name = "execution_type")
+    @Column(name = "EXECUTION_TYPE")
     private String executionType;
     
-    @Column(name = "sharding_item")
+    @Column(name = "SHARDING_ITEM")
     private String shardingItem;
     
-    @Column(name = "state")
+    @Column(name = "STATE")
     private String state;
     
-    @Column(name = "message")
+    @Column(name = "MESSAGE")
     private String message;
     
-    @Column(name = "creation_time")
+    @Column(name = "CREATION_TIME")
     private Date creationTime;
     
     /**

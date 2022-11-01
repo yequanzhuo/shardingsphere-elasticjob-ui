@@ -36,26 +36,27 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Entity
-@Table(name = "TASK_RESULT_STATISTICS")
+@Table(name = "TASK_RESULT_STATISTICS",schema = "ELASTIC_JOB")
 public class TaskResultStatistics {
     
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "success_count", length = 11)
+    @Column(name = "SUCCESS_COUNT", length = 11)
     private Long successCount;
     
-    @Column(name = "failed_count", length = 11)
+    @Column(name = "FAILED_COUNT", length = 11)
     private Long failedCount;
     
-    @Column(name = "statistic_interval", length = 10)
+    @Column(name = "STATISTIC_INTERVAL", length = 10)
     private String statisticInterval;
     
-    @Column(name = "statistics_time", nullable = false)
+    @Column(name = "STATISTICS_TIME", nullable = false)
     private Date statisticsTime;
     
-    @Column(name = "creation_time", nullable = false)
+    @Column(name = "CREATION_TIME", nullable = false)
     private Date creationTime = new Date();
     
     public TaskResultStatistics(final Long successCount, final Long failedCount) {

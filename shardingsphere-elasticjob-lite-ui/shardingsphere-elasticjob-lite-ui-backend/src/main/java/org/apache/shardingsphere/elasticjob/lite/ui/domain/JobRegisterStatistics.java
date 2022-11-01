@@ -36,20 +36,21 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Entity
-@Table(name = "JOB_REGISTER_STATISTICS")
+@Table(name = "JOB_REGISTER_STATISTICS",schema = "ELASTIC_JOB")
 public class JobRegisterStatistics {
     
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "registered_count", length = 11)
+    @Column(name = "REGISTERED_COUNT", length = 11)
     private Integer registeredCount;
     
-    @Column(name = "statistics_time", nullable = false)
+    @Column(name = "STATISTICS_TIME", nullable = false)
     private Date statisticsTime;
     
-    @Column(name = "creation_time", nullable = false)
+    @Column(name = "CREATION_TIME", nullable = false)
     private Date creationTime = new Date();
     
     public JobRegisterStatistics(final Integer registeredCount, final Date statisticsTime) {
